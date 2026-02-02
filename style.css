@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("bg.png");
+    background-size: cover;
+    font-family: "Pixelify Sans", sans-serif;
+    overflow: hidden;
+}
+
+/* Clear background on success */
+body.success-mode {
+    background-image: none !important;
+    background-color: #ffb3b3; 
+}
+
+#envelope-container { text-align: center; cursor: pointer; }
+
+.glow-text {
+    font-size: 32px;
+    color: #fff;
+    animation: textGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0 0 10px #fff, 0 0 20px #ff4d4d; }
+    to { text-shadow: 0 0 20px #fff, 0 0 40px #ffb3b3; }
+}
+
+#envelope { width: 220px; animation: pulse 1.5s infinite; }
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+#letter-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter-window {
+    width: 95vw;
+    max-width: 900px; /* Bigger window to prevent elements from feeling small */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("window.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 100px 40px;
+}
+
+/* Remove window border on success screen */
+.letter-window.final {
+    background-image: none !important;
+}
+
+.cat { 
+    width: 400px; /* Base size for the initial gif */
+    max-width: 80%;
+    transition: width 0.5s ease; 
+}
+
+/* Size for kisses.gif on success */
+.kisses-big { 
+    width: 600px !important; 
+}
+
+.buttons { display: flex; gap: 40px; margin-top: 30px; }
+
+.btn { width: 150px; cursor: pointer; transition: transform 0.2s ease; }
+
+/* The white box background for your text */
+.final-text-box {
+    font-size: 26px;
+    margin-top: 30px;
+    text-align: center;
+    background-color: white; 
+    padding: 20px 40px;
+    border-radius: 20px;
+    color: #333;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    border: 2px solid #ffb3b3;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    color: #ff4d4d;
+    font-size: 24px;
+    animation: floatUp 4s linear infinite;
+    z-index: 10;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-110vh); opacity: 0; }
+}
